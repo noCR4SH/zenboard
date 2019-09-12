@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>suppDASH</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='tiles.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts.js') }}"></script>
+</head>
+<body>
+    <div class="app">
+        <div class="wrapper">
+            <div class="item a">
+               <div class="title-bar overlay">
+                 <div class="title-bar-text">
+                     <p>Case transfer tickets</p>
+                 </div>
+                 
+                 <p class="counter" id="count_transfer">0</p>
+               </div>
+            </div>
+            <div class="item b">
+                <div class="title-bar overlay">
+                    <div class="title-bar-text">
+                        <p>Time</p>
+                    </div>
+                    <div>
+                        <p class="clock-label">PST</p>
+                        <p class="clock-label">EDT</p>
+                        <p class="clock-label">CST</p>
+                    </div>
+                    <!-- PST -->
+                    
+                    <p class="clock" timezone="-7">00:00</p>
+                    <!-- EDT -->
+                    
+                    <p class="clock" timezone="-4">00:00</p>
+                    <!-- CST -->
+                    
+                    <p class="clock" timezone="+7">00:00</p>
+                    
+                </div>
+                <div class="ct-chart ct-square"></div>
+            </div>
+<!--
+            <div class="item c">
+                <div class="title-bar overlay">
+                    <div class="title-bar-text">
+                        <p>item 3</p>
+                    </div>
+                </div>
+            </div>
+-->
+            <div class="item d">
+                <div class="title-bar overlay">
+                    <div class="title-bar-text">
+                        <p>Closure rate</p>
+                    </div>
+                    <table class="pickup-table">
+                        <tr>
+                            <td class="td-stats">Mateusz</td>
+                            <td class="td-stats" id="mat_closure">0</td>
+                        </tr>
+                        <tr>
+                            <td class="td-stats">Bartosz</td>
+                            <td class="td-stats" id="bart_closure">0</td>
+                        </tr>
+                        <tr>
+                            <td class="td-stats">Harsh</td>
+                            <td class="td-stats" id="harsh_closure">0</td>
+                        </tr>
+                        <tr>
+                            <td class="td-stats">Wojciech</td>
+                            <td class="td-stats" id="woj_closure">0</td>
+                        </tr>
+                        <tr>
+                            <td class="td-stats">Jakub</td>
+                            <td class="td-stats" id="jak_closure">0</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="item e">
+                <div class="title-bar overlay">
+                    <div class="title-bar-text">
+                        <p>Pickup rate</p>
+                    </div>
+                    <table class="pickup-table">
+                        <tr>
+                            <td class="td-stats">Mateusz</td>
+                            <td class="td-stats" id="mat_pickup">0</td>
+                        </tr>
+                        <tr>
+                            <td class="td-stats">Bartosz</td>
+                            <td class="td-stats" id="bart_pickup">0</td>
+                        </tr>
+                        <tr>
+                            <td class="td-stats">Harsh</td>
+                            <td class="td-stats" id="harsh_pickup">0</td>
+                        </tr>
+                        <tr>
+                            <td class="td-stats">Wojciech</td>
+                            <td class="td-stats" id="woj_pickup">0</td>
+                        </tr>
+                        <tr>
+                            <td class="td-stats">Jakub</td>
+                            <td class="td-stats" id="jak_pickup">0</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="item f">
+               <div class="title-bar overlay">
+                    <div class="title-bar-text">
+                        <p>Unassigned tickets</p>
+                    </div>
+                    <p class="counter" id="count_tickets">0</p>
+                </div>
+            </div>
+            <div class="item g">
+                <div class="title-bar overlay">
+                    <div class="title-bar-text">
+                        <p>Platinum tickets</p>
+                    </div>
+                    <p class="counter" id="count_platinum">0</p>
+                </div>
+            </div>
+            <div class="item h">
+                <div class="title-bar overlay">
+                    <div class="title-bar-text">
+                        <p>Premium tickets</p>
+                    </div>
+                    <p class="counter" id="count_premium">0</p>
+                </div>
+            </div>
+            <div class="item i">
+                <div class="title-bar overlay big">
+                    <div class="title-bar-text">
+                        <p>Tickets in queue</p>
+                    </div>
+                    <div class="ticket-list">
+                        <table>
+                            <tr>
+                                <th>ID</th>
+                                <th>Domain</th>
+                                <th>Plan</th>
+                                <th>In queue</th>
+                            </tr>
+                        </table>
+                        <table id="ticket-table-list">
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="item j">
+                <div class="title-bar overlay big">
+                    <div class="title-bar-text">
+                        <p>Not answered</p>
+                    </div>
+                    <div class="ticket-list">
+                        <table>
+                            <tr>
+                                <th class="na-th">ID</th>
+                                <th class="na-th">Domain</th>
+                                <th class="na-th">Assignee</th>
+                            </tr>
+                        </table>
+                        <table id="na-ticket-table-list">
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
