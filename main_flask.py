@@ -88,7 +88,7 @@ class RequesterThread(Thread):
 
 @app.route('/')
 def poland_team():
-    return render_template('index.html')
+    return render_template('index_poznan.html')
 
 @socketio.on('connect', namespace='/test')
 def test_connect():

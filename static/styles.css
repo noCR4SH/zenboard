@@ -1,112 +1,36 @@
-.counter {
-    font-size: 70px;
-    text-align: center;
-    margin-top: 1.5em;
-}
-
-tr {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-table {
-    width: 100%;
-    text-align: center;
-    text-decoration: none;
-}
-
-th {
-    display: inline-flex;
-    text-align: left;
-    width: 5em;
-    padding: 20px;
-}
-
-.na-th {
-    display: inline-flex;
-    text-align: left;
-    width: 4em;
-    padding: 10px;
-    font-size: 18px;
-}
-
-td {
-    display: inline-flex;
-    text-align: left;
-    width: 5em;
-    padding: 20px;
-    overflow: hidden;
-}
-
-.ticket-list {
-    text-align: center;
-}
-
-.ticket-list {
-    font-size: 20px;
-}
-
-.title-bar {
-    display: block;
-    background-color: red;
-}
-
-.overlay {
-    position: absolute;
-    text-align: center;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 20%;
-    z-index: 10;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    background-color: rgba(0,0,0, 0.3); /*dim the background*/
-}
-
-.big {
-    height: 10%;
-}
-
-.pickup-table {
-    font-size: 20px;
-}
-
-.td-stats {
-    padding: 12px;
-    padding-left: 30px;
-    text-align: center;
-}
-
-.td-na {
-    padding: 12px;
-    font-size: 15px;
+html {
+    overflow: visible;
 }
 
 .clock {
-    display: inline-block;
+    color: #17D4FE;
+    font-size: 60px;
+    font-family: Orbitron;
+    letter-spacing: 7px;
+}
+
+
+.tile-header {
+    text-align: center;
+}
+
+.counter {
     font-size: 70px;
-    height: 1em;
-    padding-left: 50px;
-    padding-right: 50px;
-    margin: auto;
+    text-align: center;
 }
 
-.clock-label {
+.section {
+    padding-top: 5px;
+}
+
+.with-gauges {
+    text-decoration-color: red;
+}
+
+
+
+#g2, #g3, #g4 {
+    width:100px; height:80px;
     display: inline-block;
-    width: 6em;
-    height: 1em;
-    margin-top: 5%;
-    padding-left: 50px;
-    padding-right: 50px;
-    font-size: 30px;
-}
-
-.fullscreenButton {
-    background-color: dimgray;
-    border-radius: 5px;
-    border: none;
+    margin: 1em;
 }
