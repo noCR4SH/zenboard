@@ -116,13 +116,27 @@ class Handler:
     def tickets_per_agent(self):
         """ This function is preparing list with numbers of taken/solved cases by agent."""
         (_mosinski, _bremesz, _hgautam,
-         _wniekrasz, _jburda) = (0, 0, 0, 0, 0)
+         _wniekrasz, _jburda, _pliu, _mmehdipour, _jnguyen,
+         _binu, _harry, _rupesh, _yash, _manoj, _hardik, _arshad, _prakash, _philip, _sooraj) = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
         agents_list = [
             _mosinski,     #0
             _bremesz,      #1
             _hgautam,      #2
             _wniekrasz,    #3
-            _jburda        #4
+            _jburda,       #4
+            _pliu,         #5
+            _mmehdipour,   #6
+            _jnguyen,      #7
+            _binu,         #8
+            _harry,        #9
+            _rupesh,       #10
+            _yash,         #11
+            _manoj,        #12
+            _hardik,       #13
+            _arshad,       #14
+            _prakash,      #15
+            _philip,       #16
+            _sooraj        #17
             ]
         agents_ids = b.agents_ids
         for case_number in range(self._count):

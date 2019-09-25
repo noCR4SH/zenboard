@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zenboard | Poznan</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bulma.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bulmaswatch.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='raphael-2.1.4.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='justgage.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts_mtv.js') }}"></script>
+</head>
+<body>
+    <section class="section">  
+        <div class="tile is-ancestor">
+            <div class="tile is-4 is-parent is-vertical">
+               
+                <div class="tile is-parent is-vertical tile-header box">
+                    <p class="subtitle">Pickup Rate</p>
+                    <div class="tile">
+                        <table class="table is-fullwidth">
+                            <tbody class="is-size-5">
+                                <tr>
+                                    <td class="is-size-3">Patrick</td>
+                                    <td class="is-size-3" id="patrick_pickup">0</td>
+                                </tr>
+                                <tr>
+                                    <td class="is-size-3">Matin</td>
+                                    <td class="is-size-3" id="matin_pickup">0</td>
+                                </tr>
+                                <tr>
+                                    <td class="is-size-3">Jimmy</td>
+                                    <td class="is-size-3" id="jim_pickup">0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="tile tile-header is-vertical box">
+                    <p class="subtitle">Queue Status</p>
+                        <div class="tile">
+                            <div class="tile is-parent is-vertical">
+                            <div class="tile is-child is-paddingless">
+                                <div class="with-gauges" id="new_gauge"></div>
+                            </div>
+                            <div class="tile is-child is-paddingless">
+                                <div class="with-gauges" id="platinum_gauge"></div>
+                            </div>
+                        </div>
+                        <div class="tile is-parent is-vertical">
+                            <div class="tile is-child is-paddingless">
+                                <div class="with-gauges" id="transferred_gauge"></div>
+                            </div>
+                            <div class="tile is-child is-paddingless">
+                                <div class="with-gauges" id="premium_gauge"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tile is-4 is-parent">
+                <div class="tile box">
+                    <div class="tile tile-header is-vertical">
+                       <p class="subtitle">Unassigned List</p>
+                        <div class="tile">
+                            <table class="table is-fullwidth">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Domain</th>
+                                        <th>Plan</th>
+                                        <th>In queue since</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="is-size-4" id="ticket-table-list">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tile is-4 is-parent">
+                <div class="tile is-child box">
+                    <div class="tile tile-header is-vertical">
+                        <p class="subtitle">Needs Attention</p>
+                        <div class="tile">
+                            <table class="table is-fullwidth">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Domain</th>
+                                        <th>Assignee</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="na-ticket-table-list" class="is-size-4">
+                                    <tr>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section is-paddingless">
+        <button class="button is-small is-primary" onclick="openFullscreen()">Fullscreen</button>
+    </section>
+    <script>
+        /* Get the documentElement (<html>) to display the page in fullscreen */
+        var elem = document.documentElement;
+
+        /* View in fullscreen */
+        function openFullscreen() {
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.mozRequestFullScreen) { /* Firefox */
+                elem.mozRequestFullScreen();
+            } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) { /* IE/Edge */
+                elem.msRequestFullscreen();
+            }
+        }
+    </script>
+</body>
+</html>

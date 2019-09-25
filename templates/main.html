@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zenboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bulma.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bulmaswatch.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <section class="hero is-info is-bold">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">Zenboard</h1>
+                <h2 class="subtitle">Choose real-time dashboard below</h2>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <nav class="level" style="padding-top: 20px">
+            <div class="level-item has-text-centered">
+                <div>
+                    <a href="{{ url_for('mtv_team') }}" class="button is-large">Mountain View</a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered">
+                <div>
+                    <a href="{{ url_for('poland_team') }}" class="button is-large">Poznan</a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered">
+                <div>
+                    <a href="{{ url_for('india_team') }}" class="button is-large">India</a>
+                </div>
+            </div>
+        </nav>
+    </section>
+</body>
+</html>

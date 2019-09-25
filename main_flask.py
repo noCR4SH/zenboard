@@ -87,8 +87,20 @@ class RequesterThread(Thread):
         self.post_stats()
 
 @app.route('/')
+def main_page():
+    return render_template('main.html')
+
+@app.route('/poznan')
 def poland_team():
     return render_template('index_poznan.html')
+
+@app.route('/mtv')
+def mtv_team():
+    return render_template('index_mtv.html')
+
+@app.route('/india')
+def india_team():
+    return render_template('index_india.html')
 
 @socketio.on('connect', namespace='/test')
 def test_connect():
