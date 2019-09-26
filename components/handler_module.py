@@ -173,7 +173,10 @@ class Handler:
             "Bartosz",
             "Harsh",
             "Wojciech",
-            "Jakub"
+            "Jakub",
+            "Patrick",
+            "Matin",
+            "Jimmy"
             ]
         agents_ids = b.agents_ids
         for list_id, agent_id in agents_ids.items():

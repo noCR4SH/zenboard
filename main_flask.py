@@ -28,6 +28,14 @@ def not_answered():
     not_answered_view = not_answered_handle.get_view('NotAnswered')
     return not_answered_view
 
+def not_answered_mtv():
+    not_answered_call = call_module.ZendeskCall()
+    not_answered_handle = handler_module.Handler()
+    not_answered_raw = not_answered_call.not_answered_mtv
+    (not_answered_handle.tickets, not_answered_handle.view_ticket_count) = (not_answered_raw, not_answered_raw)
+    not_answered_view_mtv = not_answered_handle.get_view('NotAnswered')
+    return not_answered_view_mtv
+
 def team_taken():
     call = call_module.ZendeskCall()
     handle = handler_module.Handler()
@@ -72,6 +80,7 @@ class RequesterThread(Thread):
             taken_list = team_taken()
             solved_tickets = team_solved()
             (not_answered_view) = not_answered()
+            not_answered_mtv_view = not_answered_mtv()
 
             socketio.emit('newstatus', {'un_ticket_count': un_Tickets, 
                                         'un_premium_count': un_premium, 
@@ -80,7 +89,8 @@ class RequesterThread(Thread):
                                         'trans_count': trans_Tickets, 
                                         'taken_list': taken_list, 
                                         'solved_list': solved_tickets, 
-                                        'not_answered_list': not_answered_view}, namespace='/test')
+                                        'not_answered_list': not_answered_view,
+                                        'not_answered_list_mtv': not_answered_mtv_view}, namespace='/test')
             sleep(self.delay)
 
     def run(self):

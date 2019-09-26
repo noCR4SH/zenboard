@@ -20,6 +20,7 @@ class ZendeskCall:
         self._team_taken = '{0}/{1}/tickets.json'.format(v.main_path, v.view_team_taken['id'])
         self._team_solved = '{0}/{1}/tickets.json'.format(v.main_path, v.view_team_solved['id'])
         self._not_answered = '{0}/{1}/tickets.json'.format(v.main_path, v.view_not_answered['id'])
+        self._not_answered_mtv = '{0}/{1}/tickets.json'.format(v.main_path, v.view_not_answered_mtv['id'])
 
     @property
     def unassigned_queue(self):
@@ -75,6 +76,16 @@ class ZendeskCall:
     def team_solved(self):
         """API call to my open tickets queue."""
         resp = r.get(self._team_solved, auth=a.key)
+        if resp.status_code != 200:
+            print('Status:', resp.status_code, 'Problem with the request. Exiting.')
+            exit()
+        else:
+            return j.loads(resp.text)
+
+    @property
+    def not_answered_mtv(self):
+        """API call to my open tickets queue."""
+        resp = r.get(self._not_answered_mtv, auth=a.key)
         if resp.status_code != 200:
             print('Status:', resp.status_code, 'Problem with the request. Exiting.')
             exit()
