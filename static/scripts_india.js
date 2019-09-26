@@ -145,8 +145,8 @@ socket.on('newstatus', function(msg) {
     // document.getElementById("jak_closure").innerHTML = msg.solved_list[4];
 
     unassignedList(msg.un_list);
-    notAnsweredList(msg.not_answered_list);
-    console.log("Not answered ticket list " + msg.not_answered_list + ", Var type: " + typeof(msg.not_answered_list));
+    notAnsweredList(msg.not_answered_list_india);
+    console.log("Not answered ticket list " + msg.not_answered_list_india + ", Var type: " + typeof(msg.not_answered_list));
 });
 
 

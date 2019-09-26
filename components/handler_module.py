@@ -176,7 +176,17 @@ class Handler:
             "Jakub",
             "Patrick",
             "Matin",
-            "Jimmy"
+            "Jimmy",
+            "Binu",
+            "Harry",
+            "Rupesh",
+            "Yash",
+            "Manoj",
+            "Hardik",
+            "Arshad",
+            "Prakash",
+            "Philip",
+            "Sooraj"
             ]
         agents_ids = b.agents_ids
         for list_id, agent_id in agents_ids.items():

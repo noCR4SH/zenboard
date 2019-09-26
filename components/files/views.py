@@ -42,4 +42,9 @@ view_not_answered_mtv = {
     'id': 360112957472,
     'title': 'MTV - Not answered greater than 48hours'
 }
+
+view_not_answered_india = {
+    'id': 360113054271,
+    'title': 'India - Not answered greater than 48hours'
+}
 # Add new views below in the same configuration.
