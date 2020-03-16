@@ -20,8 +20,8 @@ class ZendeskCall:
         self._team_taken = '{0}/{1}/tickets.json'.format(v.main_path, v.view_team_taken['id'])
         self._team_solved = '{0}/{1}/tickets.json'.format(v.main_path, v.view_team_solved['id'])
         self._not_answered = '{0}/{1}/tickets.json'.format(v.main_path, v.view_not_answered['id'])
-        self._not_answered_mtv = '{0}/{1}/tickets.json'.format(v.main_path, v.view_not_answered_mtv['id'])
-        self._not_answered_india = '{0}/{1}/tickets.json'.format(v.main_path, v.view_not_answered_india['id'])
+        self._not_answered_mtv = '{0}/{1}/tickets.json?page=1'.format(v.main_path, v.view_not_answered_mtv['id'])
+        self._not_answered_india = '{0}/{1}/tickets.json?page=1'.format(v.main_path, v.view_not_answered_india['id'])
 
     @property
     def unassigned_queue(self):

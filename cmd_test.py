@@ -28,6 +28,29 @@ def team_solved():
     ludzie = handle.tickets_per_agent()
     return ludzie
 
+def not_answered_india():
+    not_answered_call = call_module.ZendeskCall()
+    not_answered_handle = handler_module.Handler()
+    not_answered_raw = not_answered_call.not_answered_india
+    (not_answered_handle.tickets, not_answered_handle.view_ticket_count) = (not_answered_raw, not_answered_raw)
+    not_answered_view_india = not_answered_handle.get_view('NotAnsweredIndia')
+    return not_answered_view_india
+
+def not_answered_mtv():
+    not_answered_call = call_module.ZendeskCall()
+    not_answered_handle = handler_module.Handler()
+    not_answered_raw = not_answered_call.not_answered_mtv
+    (not_answered_handle.tickets, not_answered_handle.view_ticket_count) = (not_answered_raw, not_answered_raw)
+    not_answered_view_mtv = not_answered_handle.get_view('NotAnsweredMTV')
+    return not_answered_view_mtv
+
+def not_answered():
+    not_answered_call = call_module.ZendeskCall()
+    not_answered_handle = handler_module.Handler()
+    not_answered_raw = not_answered_call.not_answered
+    (not_answered_handle.tickets, not_answered_handle.view_ticket_count) = (not_answered_raw, not_answered_raw)
+    not_answered_view = not_answered_handle.get_view('NotAnswered')
+    return not_answered_view
 # def jira():
 #     call = call_module.JiraCall()
 #     return call.view_jira_details
@@ -42,6 +65,10 @@ ludzie_taken = team_taken()
 ludzie_solved = team_solved()
 print(ludzie_taken)
 print(ludzie_solved)
+
+print(not_answered())
+print(not_answered_india())
+print(not_answered_mtv)
 
 # case = jira()
 # print(case)

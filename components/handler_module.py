@@ -99,6 +99,7 @@ class Handler:
 
     def get_view(self, view):
         _tickets = []
+        _ticket = []
         for case_number in range(self._count):
             _ticket = []
             if 'Unassigned' == view:
@@ -110,16 +111,23 @@ class Handler:
                 _ticket.append(self.ticket_id(case_number))
                 _ticket.append(self.name_check(self.domain_name(case_number)))
                 _ticket.append(self.assignee(case_number))
+            if 'NotAnsweredIndia' == view:
+                _ticket.append(self.ticket_id(case_number))
+                _ticket.append(self.name_check(self.domain_name(case_number)))
+                _ticket.append(self.assignee(case_number))
+            if 'NotAnsweredMTV' == view:
+                _ticket.append(self.ticket_id(case_number))
+                _ticket.append(self.name_check(self.domain_name(case_number)))
+                _ticket.append(self.assignee(case_number))
             _tickets.append(_ticket)
         return _tickets
 
     def tickets_per_agent(self):
         """ This function is preparing list with numbers of taken/solved cases by agent."""
-        (_mosinski, _bremesz, _hgautam,
+        (_bremesz, _hgautam,
          _wniekrasz, _jburda, _pliu, _mmehdipour, _jnguyen,
-         _binu, _harry, _rupesh, _yash, _manoj, _hardik, _arshad, _prakash, _philip, _sooraj) = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+         _binu, _harry, _rupesh, _yash, _manoj, _hardik, _arshad, _prakash, _philip, _sooraj, _jwalant, _pavil) = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
         agents_list = [
-            _mosinski,     #0
             _bremesz,      #1
             _hgautam,      #2
             _wniekrasz,    #3
@@ -136,7 +144,9 @@ class Handler:
             _arshad,       #14
             _prakash,      #15
             _philip,       #16
-            _sooraj        #17
+            _sooraj,       #17
+            _jwalant,      #18
+            _pavil         #19
             ]
         agents_ids = b.agents_ids
         for case_number in range(self._count):
@@ -169,7 +179,6 @@ class Handler:
     def assignee(self, case_number):
         """Check who is assignee of the ticket."""
         agents_list = [
-            "Mateusz",
             "Bartosz",
             "Harsh",
             "Wojciech",
@@ -186,7 +195,9 @@ class Handler:
             "Arshad",
             "Prakash",
             "Philip",
-            "Sooraj"
+            "Sooraj",
+            "Jwalant",
+            "Pavil"
             ]
         agents_ids = b.agents_ids
         for list_id, agent_id in agents_ids.items():

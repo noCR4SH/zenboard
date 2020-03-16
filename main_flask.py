@@ -33,7 +33,7 @@ def not_answered_india():
     not_answered_handle = handler_module.Handler()
     not_answered_raw = not_answered_call.not_answered_india
     (not_answered_handle.tickets, not_answered_handle.view_ticket_count) = (not_answered_raw, not_answered_raw)
-    not_answered_view_india = not_answered_handle.get_view('NotAnswered')
+    not_answered_view_india = not_answered_handle.get_view('NotAnsweredIndia')
     return not_answered_view_india
 
 def not_answered_mtv():
@@ -41,7 +41,7 @@ def not_answered_mtv():
     not_answered_handle = handler_module.Handler()
     not_answered_raw = not_answered_call.not_answered_mtv
     (not_answered_handle.tickets, not_answered_handle.view_ticket_count) = (not_answered_raw, not_answered_raw)
-    not_answered_view_mtv = not_answered_handle.get_view('NotAnswered')
+    not_answered_view_mtv = not_answered_handle.get_view('NotAnsweredMTV')
     return not_answered_view_mtv
 
 def team_taken():
